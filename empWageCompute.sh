@@ -5,11 +5,14 @@ empWagePerHr=20;
 
 function getWorkHrs ()
 {
-        Random=((RANDOM%2))
+        Random=$((RANDOM%3))
         if [ $Random -eq 1 ]
         then
                 echo "Employee is Present"
 		empHrs=8;
+	elif [[ $Random -eq 2 ]]
+        then
+                empHrs=4;
         else
                 echo "Employee is Absent"
  		empHrs=0;
