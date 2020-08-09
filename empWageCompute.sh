@@ -2,6 +2,7 @@
 
 echo "welcome to Emp Wage Computation"
 empWagePerHr=20;
+numWorkingDays=20;
 
 function getWorkHrs ()
 {
@@ -22,5 +23,14 @@ function getWorkHrs ()
 
 getWorkHrs
 
-salary=$(( $empWagePerHr * $empHrs ))
-echo "Daily employee wage : " $salary
+
+cnt=1;
+while [[ $cnt != $numWorkingDays ]]
+do
+        getWorkHrs
+        totalWorkHrs=$(( $totalWorkHrs + $empHrs ))
+        ((cnt++))
+done
+
+totalSalary=$(( $totalWorkHrs * $empWagePerHr ))
+echo "Daily employee wage : " $totalSalary
