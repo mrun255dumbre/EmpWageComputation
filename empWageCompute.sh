@@ -3,6 +3,8 @@
 echo "welcome to Emp Wage Computation"
 empWagePerHr=20;
 numWorkingDays=20;
+maxWorkHrs=100;
+totalWorkHrs=0;
 
 function getWorkHrs ()
 {
@@ -21,11 +23,9 @@ function getWorkHrs ()
 
 }
 
-getWorkHrs
-
 
 cnt=1;
-while [[ $cnt != $numWorkingDays ]]
+while [[ $cnt -lt $numWorkingDays  && $totalWorkHrs -lt $maxWorkHrs ]]
 do
         getWorkHrs
         totalWorkHrs=$(( $totalWorkHrs + $empHrs ))
